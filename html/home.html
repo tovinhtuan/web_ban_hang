@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1147679ae7.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>tuan-shop</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../image/download.png">
+        </div>
+        <div class="menu">
+            <li><a>NAM</a>
+                <ul class="sub-menu">
+                    <li><a href="">Hàng mới về</a></li>
+                    <li><a>Collection</a></li>
+                    <li><a>Áo</a>
+                        <ul>
+                            <li><a>Áo sơ mi</a></li>
+                            <li><a>Áo thun</a></li>
+                            <li><a>Áo Vest</a></li>
+                            <li><a>Áo Len</a></li>
+                            <li><a>Áo Khoác</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Quần</a>
+                        <ul>
+                            <li><a>Quần jean</a></li>
+                            <li><a>Quần lửng</a></li>
+                            <li><a>Quần dài</a></li>
+                        </ul>
+                    </li>
+                    <li><a></a></li>
+                </ul>
+            </li>
+            <li><a>NỮ</a></li>
+            <li><a>TRẺ EM</a></li>
+            <li><a>SALE</a></li>
+            <li><a>KHẨU TRANG</a></li>
+            <li><a>BỘ SƯU TẬP</a></li>
+            <li><a>THÔNG TIN</a></li>
+        </div>
+        <div class="other">
+            <li><input placeholder="Tìm kiếm" type="text"> <i class="fas fa-search"></i></li>
+            <li><a class="fa fa-paw" href=""></a></li>
+            <li><a class="fa fa-user" href=""></a></li>
+            <li><a class="fa fa-shopping-bag" href=""></a></li>
+        </div>
+    </header>
+    <section id="Slider">
+        <div class = "slide-container">
+            <img src="../image/slider/slide1.jpg" alt="">
+            <img src="../image/slider/slide2.webp" alt="">
+            <img src="../image/slider/slide3.webp" alt="">
+            <img src="../image/slider/slide4.jpg" alt="">
+            <img src="../image/slider/slide5.jpg" alt="">
+        </div>
+        <div class = "dot-container">
+            <div class = "dot active"></div>
+            <div class = "dot"></div>
+            <div class = "dot"></div>
+            <div class = "dot"></div>
+            <div class = "dot"></div>
+        </div>
+    </section>
+    <section class = "app-container">
+        <p>Tải ứng dụng DOCI</p>
+        <div class = "app-install">
+            <img src="../image/app_store.png">
+            <img src="../image/google-play-badge.png">
+        </div>
+        <p>Nhận bản tin DOCI</p>
+        <input type = "text" placehoder="Nhập email của bạn...">
+    </section>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".slide-container img")
+    const imgContainer = document.querySelector(".slide-container")
+    const dotItem = document.querySelectorAll(".dot")
+    let imgNumber = imgPosition.length
+    let index = 0
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click", function(){
+            slider(index)
+        })
+    })
+    function imgSlide() {
+        index ++;
+        console.log(index)
+        if (index >= imgNumber) {
+            index = 0
+        }
+        slider(index)
+    }
+    function slider(index) {
+        imgContainer.style.left = "-" + index*100 + "%"
+        const dotActive = document.querySelector(".active")
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+    setInterval(imgSlide, 8000)
+</script>
+</html>
